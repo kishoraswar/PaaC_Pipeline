@@ -1,10 +1,14 @@
 pipeline{
     agent{
-        label "aws"
+        label "aws_nodes"
+    }
+    tools{
+        maven 'Maven' 
     }
     stages{
         stage("Test"){
             steps{
+                sh "mvn --version"
                 echo "========executing A========"
             }  
         }
