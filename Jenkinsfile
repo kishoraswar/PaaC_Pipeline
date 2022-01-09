@@ -1,38 +1,34 @@
-pipeline {
-    agent { label 'aws_nodes'}
-
-    stages {
-        stage('Init') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-         stage('Test') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-         stage('Build') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-         stage('Deploy') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-        
+pipeline{
+    agent{
+        label "aws"
     }
-     post { 
-        always { 
-            echo 'I will always say Hello again!'
+    stages{
+        stage("Test"){
+            steps{
+                echo "========executing A========"
+            }  
         }
-        failure { 
-            echo 'failure'
+        stage("Build"){
+            steps{
+                echo "========executing A========"
+            }  
         }
-        success { 
-            echo 'success'
+        stage("Deploy"){
+            steps{
+                echo "========executing A========"
+            }  
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
         }
     }
 }
+
